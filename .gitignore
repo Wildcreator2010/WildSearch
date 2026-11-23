@@ -1,0 +1,27 @@
+# Gradle / Android Studio
+.gradle/
+build/
+app/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.iml
+.idea/
+.kotlin/
+
+# 调试产物
+shots/
+tools/__pycache__/
+
+# Release signing secrets must stay outside the repository
+*.keystore
+*.jks
+*.p12
+*signing.properties
+audit/
+dist/
+
+# 系统
+.DS_Store
+Thumbs.db
