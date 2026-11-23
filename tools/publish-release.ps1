@@ -194,7 +194,7 @@ if (-not $sdk) {
     $localProperties = Join-Path $root 'local.properties'
     if (Test-Path $localProperties) {
         $match = [regex]::Match((Get-Content $localProperties -Raw), '(?m)^\s*sdk\.dir\s*=\s*(.+)\s*$')
-        if ($match.Success) { $sdk = $match.Groups[1].Value.Trim().Replace('\\', '\') }
+        if ($match.Success) { $sdk = $match.Groups[1].Value.Trim().Replace('\\', '\').Replace('\:', ':').Trim('"') }
     }
 }
 if (-not $sdk -or -not (Test-Path (Join-Path $sdk 'build-tools'))) {
