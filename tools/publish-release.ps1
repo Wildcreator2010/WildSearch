@@ -289,7 +289,7 @@ function Remove-CreatedRelease {
 
 function Send-ReleaseAsset([string]$name, [string]$path, [string]$contentType) {
     $uploadBase = $release.upload_url -replace '\{.*$', ''
-    $url = "$uploadBase?name=$([uri]::EscapeDataString($name))"
+    $url = "${uploadBase}?name=$([uri]::EscapeDataString($name))"
     Invoke-RestMethod -Method Post -Uri $url -Headers $headers -ContentType $contentType -InFile $path -TimeoutSec 600
 }
 
